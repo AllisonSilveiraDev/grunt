@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     less: {
       development: {
         files: {
-          "./build/styles/main.css": "./src/styles/main.less",
+          "dev/styles/main.css": "./src/styles/main.less",
         },
       },
       production: {
@@ -12,21 +12,21 @@ module.exports = function (grunt) {
           compress: true,
         },
         files: {
-          "./build/styles/main.min.css": "./src/styles/main.less",
+          "dist/styles/main.min.css": "./src/styles/main.less",
         },
+      },
+    },
+    watch: {
+      less: {
+        files: ["src/styles/**/*.less"],
+        tasks: ["less:development"],
       },
     },
   });
 
-  grunt.registerTask("olaGrunt", function () {
-    const done = this.async();
-    setTimeout(function () {
-      console.log("olá Grunt");
-      done();
-    }, 300);
-  });
-
   grunt.loadNpmTasks("grunt-contrib-less");
+  grunt.loadNpmTasks("grunt-contrib-watch");
 
-  grunt.registerTask("default", ["less"]);
+  grunt.registerTask("default", ["watch"]);
+  grunt.registerTask("build", ["less:production"]);
 };
