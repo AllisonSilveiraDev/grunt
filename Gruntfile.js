@@ -32,7 +32,7 @@ module.exports = function (grunt) {
           patterns: [
             {
               match: "ENDERECO_DO_CSS",
-              Replacement: "./styles/main.css",
+              replacement: "./styles/main.css",
             },
           ],
         },
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
           patterns: [
             {
               match: "ENDERECO_DO_CSS",
-              Replacement: "./styles/main.min.css",
+              replacement: "./styles/main.min.css",
             },
           ],
         },
@@ -85,5 +85,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-clean");
 
   grunt.registerTask("default", ["watch"]);
-  grunt.registerTask("build", ["less:production", "htmlmin:dist", "replace:dist", "clean"]);
+  grunt.registerTask("build", ["less:production", "htmlmin:dist", "replace:dist", "replace:dev", "clean"]);
 };
