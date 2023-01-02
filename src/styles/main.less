@@ -2,8 +2,14 @@
 @fontedoTitulo: Lobster, cursive;
 @corDoTexto: #fff;
 @corDeFundo: #eb3b5a;
-@corDoBotao: #f7b731;
+@corDoBotao: #ffbe19;
 @corTextBotao: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-color: @corDeFundo;
@@ -14,13 +20,14 @@ body {
 h1 {
   font-family: @fontedoTitulo;
   font-size: 3em;
+  margin: 45px 0 30px 0;
 }
 
 main {
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
@@ -28,12 +35,16 @@ button {
   padding: 16px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.3em;
-  margin-top: 16px;
+  font-size: 1em;
+  margin: 50px;
   border-radius: 8px;
   background-color: @corDoBotao;
   color: @corTextBotao;
   font-family: @fontePrincipal;
+  &:hover {
+    background-color: #c38c15;
+    color: #fff;
+  }
 }
 
 input {
@@ -46,4 +57,16 @@ input {
   text-align: center;
   color: #fff;
   border-bottom: 6px solid #fff;
+}
+
+.resultado {
+  padding: 16px;
+  border: 8px dotted #fff;
+  display: none;
+  span {
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 3em;
+    display: block;
+  }
 }
